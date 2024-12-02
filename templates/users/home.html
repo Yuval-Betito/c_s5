@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
 </head>
 <body>
-<h1>Welcome to the Home Page!</h1>
+    <h1>Welcome to the Home Page!</h1>
+
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}! You are logged in.</p>
+    {% else %}
+        <p>You are not logged in. Please <a href="{% url 'login' %}">login</a>.</p>
+    {% endif %}
 </body>
 </html>
