@@ -12,11 +12,22 @@
             <a href="{% url 'password_change' %}">Change Password</a>
         </nav>
     </header>
+    
     <main>
-        {% block content %}{% endblock %}
+        {% block content %}
+        
+        {% endblock %}
     </main>
+
     <footer>
         <p>&copy; 2024 Communication LTD</p>
     </footer>
+
+    <!-- ברוך הבא למשתמש המחובר -->
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}! You are logged in.</p>
+    {% else %}
+        <p>You are not logged in. Please <a href="{% url 'login' %}">login</a>.</p>
+    {% endif %}
 </body>
 </html>
