@@ -2,7 +2,6 @@
 
 {% block content %}
     <h1>Welcome to the Home Page!</h1>
-
     {% if user.is_authenticated %}
         <p>Hello, {{ user.username }}! You are logged in.</p>
     {% else %}
